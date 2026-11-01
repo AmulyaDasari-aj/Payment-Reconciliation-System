@@ -129,6 +129,7 @@ Stores imported bank transaction records.
 |---|---|
 | bank_line_id | Unique bank line identifier (Primary Key) |
 | merchant_id | Associated merchant (Foreign Key) |
+| settlement_batch_id | Optional associated settlement batch (Foreign Key) |
 | bank_reference | Unique bank transaction reference |
 | description | Bank transaction description |
 | amount_minor | Bank transaction amount |
@@ -187,7 +188,9 @@ Stores unmatched and mismatched transactions that require investigation.
 | exception_status | Current exception status |
 | created_at | Exception creation timestamp |
 
-**Allowed exception types:** UNMATCHED_SETTLEMENT, UNMATCHED_BANK_LINE, AMOUNT_MISMATCH, CURRENCY_MISMATCH, DATE_MISMATCH, DUPLICATE_EVENT, DUPLICATE_SETTLEMENT_LINE, OTHER.
+
+
+**Allowed exception types:** UNMATCHED_SETTLEMENT, UNMATCHED_BANK_LINE, AMOUNT_MISMATCH, CURRENCY_MISMATCH, DATE_MISMATCH, FEE_MISMATCH, DUPLICATE_EVENT, DUPLICATE_SETTLEMENT_LINE, OTHER.
 
 **Allowed severity levels:** LOW, MEDIUM, HIGH, CRITICAL.
 
