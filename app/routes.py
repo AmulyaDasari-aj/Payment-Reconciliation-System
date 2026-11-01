@@ -33,13 +33,15 @@ def dashboard():
             "SELECT COUNT(*) FROM bank_statement_lines"
         ).fetchone()[0]
 
+
         matched = connection.execute(
             """
-            SELECT COUNT(*)
+            SELECT COUNT(DISTINCT bank_line_id)
             FROM reconciliation_matches
             WHERE match_status = 'MATCHED'
             """
         ).fetchone()[0]
+
 
         open_exceptions = connection.execute(
             """
@@ -59,9 +61,10 @@ def dashboard():
             """
         ).fetchall()
 
+
         match_rate = (
-            round((matched / settlements) * 100, 2)
-            if settlements else 0
+            round((matched / bank_lines) * 100, 2)
+            if bank_lines else 0
         )
 
         return render_template(
@@ -373,7 +376,7 @@ def exceptions_page():
     finally:
         connection.close()
 
-    
+
 
 @main.route("/reports")
 def reports_page():
