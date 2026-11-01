@@ -22,9 +22,13 @@ The system identifies matching transactions, detects discrepancies, generates ex
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-github-repository-url>
-cd Payment_recognition_system
+git clone https://github.com/AmulyaDasari-aj/Payment-Reconciliation-System.git
+cd Payment-Reconciliation-System
 
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
 
 ## Running the Project
 
@@ -73,3 +77,63 @@ The project uses a fixed random seed to generate reproducible sample data.
 - The project uses generated sample data rather than live payment gateway or bank integrations.
 - Reconciliation currently uses deterministic matching rules.
 - The application is intended as a prototype and may require additional security and scalability improvements for production use.
+
+## Running the Project
+
+### Run the Flask Application
+
+```bash
+python run.py
+
+
+## Testing
+
+The project includes 14 automated tests covering data generation,
+reconciliation, exception management, and database validation.
+
+Run the tests using:
+
+```bash
+python -m pytest -v
+
+
+## Project Structure
+
+Payment_recognition_system/
+│
+├── app/
+│   ├── services/
+│   │   ├── bank_generator.py
+│   │   ├── data_generator.py
+│   │   ├── data_validator.py
+│   │   ├── event_validator.py
+│   │   ├── exception_resolution.py
+│   │   ├── reconciliation.py
+│   │   ├── scenario_generator.py
+│   │   └── settlement_generator.py
+│   ├── templates/
+│   ├── routes.py
+│   └── __init__.py
+│
+├── data/
+├── database/
+│   ├── schema.sql
+│   ├── db.py
+│   ├── migrate_bank_statement_lines.py
+│   └── migrate_reconciliation.py
+│
+├── docs/
+│   ├── ai_usage.md
+│   ├── architecture.md
+│   ├── assumptions.md
+│   └── data_dictionary.md
+├── tests/
+│   ├── test_exceptions.py
+│   ├── test_generator.py
+│   ├── test_reconciliation.py
+│   └── test_validation.py
+│
+├── config.py
+├── requirements.txt
+├── run.py
+└── README.md
