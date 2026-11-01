@@ -1,0 +1,9 @@
+Flask
+pandas
+SQLAlchemy
+PyMySQL
+Faker
+numpy
+pytest
+python-dotenv
+greenlet==3.1.1
